@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOIMA — Greek Sign Language Recognition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css?v=10" />
+</head>
+<body>
+  <!-- Background Orbs -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <img src="/noima_logo_no_bg.png" alt="NOIMA logo" class="logo" />
+      <div class="header-text">
+        <h1 class="app-title" data-i18n="NOIMA">NOIMA</h1>
+        <p class="app-subtitle" data-i18n="Greek Sign Language Recognition">Greek Sign Language Recognition</p>
+      </div>
+      <div class="lang-toggle">
+        <button id="btn-lang-el" class="lang-btn active">ΕΛ</button>
+        <button id="btn-lang-en" class="lang-btn">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Wrapper -->
+  <main class="dashboard-layout">
+    <!-- Main Recognition Section -->
+    <section class="main-section">
+      <div class="main-card card">
+
+      <!-- Input source row -->
+      <div class="input-source-row">
+        <div class="input-source-toggle">
+          <button id="btn-input-gif" class="input-btn active" data-i18n="🎬 GIF">🎬 GIF</button>
+          <button id="btn-input-cam" class="input-btn" data-i18n="📷 Κάμερα">📷 Κάμερα</button>
+        </div>
+        <div class="gif-source-info">
+          <span id="gif-gloss-name" class="gif-gloss-name">—</span>
+          <button id="btn-clear-gif" class="btn-clear-gif hidden" title="Καθαρισμός" data-i18n-title="Καθαρισμός">✕</button>
+        </div>
+      </div>
+
+      <!-- Unified display area -->
+      <div class="main-display">
+        <video id="input-video" autoplay playsinline muted></video>
+        <canvas id="main-canvas"></canvas>
+        <div id="recording-badge" class="recording-badge hidden">
+          <span class="dot"></span> <span data-i18n="Recording">Recording</span>
+        </div>
+        <div id="gif-loading" class="gif-loading hidden">
+          <div class="spinner"></div>
+          <span data-i18n="Επεξεργασία…">Επεξεργασία…</span>
+        </div>
+        <div id="gif-placeholder" class="gif-placeholder">
+          <span data-i18n="↓ Επέλεξε νόημα από τη βιβλιοθήκη">↓ Επέλεξε νόημα από τη βιβλιοθήκη</span>
+        </div>
+      </div>
+
+      <!-- Top 5 predictions -->
+      <div class="card-inner" style="margin-top:16px">
+        <div class="card-header">
+          <span id="top5-label" class="card-title" data-i18n="Top 5 Confidence">Top 5 Confidence</span>
+        </div>
+        <div id="top5-container" class="top5-container">
+          <span class="empty-hint">—</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sign Library Wrapper -->
+  <div class="library-wrapper">
+    <section class="library-section">
+      <div class="library-header">
+        <div class="library-title-group">
+          <span class="section-title" data-i18n="Βιβλιοθήκη Νοημάτων">Βιβλιοθήκη Νοημάτων</span>
+          <span id="library-count" class="badge">—</span>
+        </div>
+        <p class="library-subtitle" data-i18n="Επέλεξε νόημα για ανάλυση μέσω GIF ή κάμερας">Επέλεξε νόημα για ανάλυση μέσω GIF ή κάμερας</p>
+      </div>
+
+      <div class="search-wrap">
+        <input id="sign-search" type="text" placeholder="Αναζήτηση νοήματος…" class="sign-search" autocomplete="off" data-i18n-placeholder="Αναζήτηση νοήματος…" />
+        <span id="search-count" class="search-count"></span>
+      </div>
+
+      <div id="sign-grid" class="sign-grid">
+        <span class="empty-hint">Φόρτωση νοημάτων…</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+  <!-- Status bar -->
+  <footer class="status-bar">
+    <div id="status-dot" class="status-dot idle"></div>
+    <span id="status-text">Φόρτωση…</span>
+  </footer>
+
+  <!-- GIF hover tooltip -->
+  <div id="gif-tooltip" class="gif-tooltip hidden">
+    <img id="gif-tooltip-img" src="" alt="" />
+    <span id="gif-tooltip-label"></span>
+  </div>
+
+  <!-- MediaPipe CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="/static/translations.js?v=1"></script>
+  <script src="/static/app.js?v=11"></script>
+</body>
+</html>

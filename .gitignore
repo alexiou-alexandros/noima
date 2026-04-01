@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Training dataset (~11.5 GB — download from vcl.iti.gr/dataset/gsl/)
+Greek_isolated/
+
+# All raw sign GIFs (only curated samples are committed — see sign_videos/samples/)
+sign_videos/*.gif
+
+# Local dev config
+.claude/
+# Environment
+.env
+.venv
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
