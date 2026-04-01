@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="noima_logo_no_bg.png" alt="NOIMA Logo" width="180"/>
+  <img src="noima_logo.jpg" alt="NOIMA Logo" width="180"/>
 
   # NOIMA — Greek Sign Language Recognition
 
