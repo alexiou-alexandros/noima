@@ -1,3 +1,6 @@
+# Training script notebook
+noima_development.ipynb
+
 # Python cache
 __pycache__/
 *.py[cod]
