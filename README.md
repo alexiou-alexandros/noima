@@ -92,7 +92,7 @@ The model was trained on the [GSL Isolated dataset](https://vcl.iti.gr/dataset/g
 | Top-1 | ~95% |
 | Top-5 | ~98% |
 
-Full training script: [`noima_development.ipynb`](noima_development.ipynb)
+Full training notebook: [`noima-isolated-base.ipynb`](noima-isolated-base.ipynb)
 
 ---
 
@@ -112,10 +112,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Windows (easiest)
-Double-click **`run.bat`** — the server starts and your browser opens automatically.
-
-### Any platform
 ```bash
 python main.py
 ```
